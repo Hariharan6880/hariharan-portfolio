@@ -11,6 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <!--
+      Hidden static form so Netlify detects "contact" at build time.
+      The real, styled form is rendered by React and POSTs to this.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <select name="type">
+        <option value="freelance"></option>
+        <option value="fulltime"></option>
+        <option value="consult"></option>
+      </select>
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

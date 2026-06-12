@@ -14,9 +14,21 @@ export default function Contact({ persona }) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    const name = new FormData(e.target).get('name') || 'there'
-    toast(`Proposal dispatched! Thanks ${name} — Hari will reply within 12 hours.`)
-    e.target.reset()
+    const form = e.target
+    const data = new FormData(form)
+    const name = data.get('name') || 'there'
+    // POST to Netlify Forms (url-encoded). Works on the deployed site;
+    // locally `netlify dev` is needed for delivery, otherwise it 404s harmlessly.
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString(),
+    })
+      .then(() => {
+        toast(`Proposal dispatched! Thanks ${name} — Hari will reply within 12 hours.`)
+        form.reset()
+      })
+      .catch(() => toast('Network hiccup — please email hariharan2002.br@gmail.com directly.'))
   }
 
   return (
@@ -37,7 +49,13 @@ export default function Contact({ persona }) {
                 </motion.div>
               </AnimatePresence>
 
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form name="contact" method="POST" data-netlify="true"
+                netlify-honeypot="bot-field" onSubmit={onSubmit} className="space-y-4">
+                {/* Netlify Forms plumbing */}
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>Don’t fill this out: <input name="bot-field" /></label>
+                </p>
                 <Field label="Your Name" name="name" placeholder="Recruiter or partner name" />
                 <Field label="Your Email" name="email" type="email" placeholder="name@company.com" />
                 <div>
