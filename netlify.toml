@@ -1,5 +1,7 @@
-# Netlify build & deploy config for the Vite + React portfolio.
+# Netlify config — the Vite app lives in the hariharan-portfolio/ subfolder.
+# command & publish are resolved relative to `base`.
 [build]
+  base = "hariharan-portfolio"
   command = "npm run build"
   publish = "dist"
 
