@@ -5,7 +5,6 @@ import { Icon } from '../ui.jsx'
 const LINKS = [
   { id: 'about', label: 'Bio', icon: 'user' },
   { id: 'capabilities', label: 'Capabilities', icon: 'cubes' },
-  { id: 'theme-engine', label: 'Theme Engine', icon: 'palette' },
   { id: 'projects', label: 'Case Studies', icon: 'code' },
   { id: 'journey', label: 'Journey', icon: 'briefcase' },
   { id: 'contact', label: 'Contact', icon: 'envelope' },

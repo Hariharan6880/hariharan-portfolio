@@ -10,7 +10,7 @@ const DOT = {
 
 export default function Timeline() {
   return (
-    <section id="journey" className="relative border-t border-slate-200/60 bg-white/50 py-24">
+    <section id="journey" className="relative border-t border-slate-200/60 bg-white/50 py-24 backdrop-blur-sm">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <Reveal className="mb-16 text-center">
           <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">professional history roadmap</span>

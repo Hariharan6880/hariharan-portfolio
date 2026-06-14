@@ -32,6 +32,10 @@ const PATHS = {
   check: 'm5 12 4 4L19 7',
   spark: 'M12 3v4m0 10v4M3 12h4m10 0h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18',
   network: 'M5 7a2 2 0 1 0 0-.01M19 7a2 2 0 1 0 0-.01M12 19a2 2 0 1 0 0-.01M6.5 8 11 17m6.5-9L13 17M7 6h10',
+  close: 'M6 6l12 12M18 6 6 18',
+  chevronLeft: 'M15 6l-6 6 6 6',
+  chevronRight: 'M9 6l6 6-6 6',
+  images: 'M3 7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Zm0 7 4-4 4 4m6 3-3-3M21 9v9a2 2 0 0 1-2 2H8',
 }
 
 export function Icon({ name, className = 'w-4 h-4', strokeWidth = 1.8 }) {
@@ -142,99 +146,6 @@ export function CursorGlow() {
   )
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ParticleField — connected node network on a canvas, tinted by the live theme
-// ─────────────────────────────────────────────────────────────────────────────
-export function ParticleField() {
-  const canvasRef = useRef(null)
-  const reduce = useReducedMotion()
-
-  useEffect(() => {
-    if (reduce) return
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let raf = 0
-    let particles = []
-    const mouse = { x: null, y: null }
-
-    const rgb = () =>
-      getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim() || '59,130,246'
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-      build()
-    }
-    const build = () => {
-      particles = []
-      const count = Math.min(90, Math.floor((canvas.width * canvas.height) / 14000))
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          dx: (Math.random() - 0.5) * 0.4,
-          dy: (Math.random() - 0.5) * 0.4,
-          s: Math.random() * 1.8 + 1,
-        })
-      }
-    }
-    const tick = () => {
-      raf = requestAnimationFrame(tick)
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      const color = rgb()
-      for (const p of particles) {
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1
-        p.x += p.dx; p.y += p.dy
-        if (mouse.x != null) {
-          const d = Math.hypot(mouse.x - p.x, mouse.y - p.y)
-          if (d < 130) { p.x -= (mouse.x - p.x) * 0.012; p.y -= (mouse.y - p.y) * 0.012 }
-        }
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${color}, 0.5)`
-        ctx.fill()
-      }
-      for (let a = 0; a < particles.length; a++) {
-        for (let b = a + 1; b < particles.length; b++) {
-          const dx = particles[a].x - particles[b].x
-          const dy = particles[a].y - particles[b].y
-          const dist = Math.hypot(dx, dy)
-          if (dist < 120) {
-            ctx.strokeStyle = `rgba(${color}, ${(1 - dist / 120) * 0.12})`
-            ctx.lineWidth = 0.7
-            ctx.beginPath()
-            ctx.moveTo(particles[a].x, particles[a].y)
-            ctx.lineTo(particles[b].x, particles[b].y)
-            ctx.stroke()
-          }
-        }
-      }
-    }
-    const onMove = (e) => { mouse.x = e.clientX; mouse.y = e.clientY }
-    const onLeave = () => { mouse.x = null; mouse.y = null }
-
-    resize()
-    tick()
-    window.addEventListener('resize', resize)
-    window.addEventListener('mousemove', onMove)
-    document.addEventListener('mouseleave', onLeave)
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('resize', resize)
-      window.removeEventListener('mousemove', onMove)
-      document.removeEventListener('mouseleave', onLeave)
-    }
-  }, [reduce])
-
-  return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 opacity-80"
-    />
-  )
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PersonaArt — animated SVG scene per persona, with an <img> slot that fades in
@@ -521,5 +432,86 @@ function FloatChip({ x, y, label, delay = 0 }) {
       <text x={x + 12} y={y + 17} fontSize="11" fontFamily="Fira Code, monospace"
         fontWeight="700" fill="var(--accent-color)">{label}</text>
     </motion.g>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Lightbox — full-screen image gallery with captions, arrow + keyboard nav.
+//   items: [{ src, caption }], index: current, onIndex(n), onClose()
+// ─────────────────────────────────────────────────────────────────────────────
+export function Lightbox({ items, index, onIndex, onClose }) {
+  const total = items.length
+  const go = (d) => onIndex((index + d + total) % total)
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+      else if (e.key === 'ArrowRight') go(1)
+      else if (e.key === 'ArrowLeft') go(-1)
+    }
+    window.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }) // re-bind each render so `index` in `go` stays current
+
+  const item = items[index]
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-slate-950/85 p-4 backdrop-blur-md sm:p-8"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        onClick={onClose}
+      >
+        {/* top bar */}
+        <div className="flex w-full max-w-5xl items-center justify-between pb-3" onClick={(e) => e.stopPropagation()}>
+          <span className="mono text-[11px] font-bold uppercase tracking-widest text-white/70">
+            {index + 1} / {total}
+          </span>
+          <button onClick={onClose} aria-label="Close gallery"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/80 transition hover:bg-white/10">
+            <Icon name="close" className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* image stage */}
+        <div className="relative flex w-full max-w-5xl flex-1 items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <button onClick={() => go(-1)} aria-label="Previous"
+            className="absolute left-0 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/60 text-white/90 transition hover:bg-white/15 sm:-left-4">
+            <Icon name="chevronLeft" className="h-6 w-6" />
+          </button>
+
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={item.src}
+              src={item.src} alt={item.caption}
+              className="max-h-[78vh] w-auto rounded-xl border border-white/10 object-contain shadow-2xl"
+              initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.25 }}
+            />
+          </AnimatePresence>
+
+          <button onClick={() => go(1)} aria-label="Next"
+            className="absolute right-0 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/60 text-white/90 transition hover:bg-white/15 sm:-right-4">
+            <Icon name="chevronRight" className="h-6 w-6" />
+          </button>
+        </div>
+
+        {/* caption + dots */}
+        <div className="w-full max-w-5xl pt-4 text-center" onClick={(e) => e.stopPropagation()}>
+          <p className="mono text-xs text-white/80">{item.caption}</p>
+          <div className="mt-3 flex items-center justify-center gap-1.5">
+            {items.map((_, i) => (
+              <button key={i} onClick={() => onIndex(i)} aria-label={`Go to image ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-white' : 'w-1.5 bg-white/35 hover:bg-white/60'}`} />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   )
 }

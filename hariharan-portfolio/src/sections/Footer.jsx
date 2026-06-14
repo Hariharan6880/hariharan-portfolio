@@ -3,7 +3,7 @@ import { CONTACT } from '../data.js'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white py-10">
+    <footer className="border-t border-slate-200 bg-white/50 py-10 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
         <span className="mono accent-grad bg-clip-text text-sm font-black tracking-wider text-transparent">
           HARIHARAN BALAJI

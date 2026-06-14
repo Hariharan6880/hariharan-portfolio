@@ -12,7 +12,7 @@ const TONE = {
 
 export default function Capabilities() {
   return (
-    <section id="capabilities" className="relative border-t border-slate-200/60 bg-white/50 py-24">
+    <section id="capabilities" className="relative border-t border-slate-200/60 bg-white/50 py-24 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto mb-16 max-w-3xl text-center">
           <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">architectural powerhouses</span>

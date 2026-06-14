@@ -32,7 +32,7 @@ export default function Contact({ persona }) {
   }
 
   return (
-    <section id="contact" className="relative border-t border-slate-200/60 bg-slate-50 py-24">
+    <section id="contact" className="relative border-t border-slate-200/60 bg-slate-50/40 py-24 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-stretch gap-12 lg:grid-cols-12">
 

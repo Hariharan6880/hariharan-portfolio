@@ -89,22 +89,27 @@ export const PERSONAS = {
 export const PERSONA_ORDER = ['recruiter', 'freelancer', 'creator']
 
 // ─── Theme engine presets ────────────────────────────────────────────────────
+// Each theme drives: accent palette, a full-page `bg` gradient, and an animated
+// `scene` rendered behind the (translucent) page. `bg` is kept light/mid-tone so
+// slate text stays readable over it.
 export const THEMES = {
   cobalt: {
     id: 'cobalt', name: 'Royal Cobalt', sub: 'Premium corporate',
     color: '#3b82f6', rgb: '59, 130, 246', rgb2: '99, 102, 241', swatch: '#3b82f6',
+    scene: 'constellation', sceneLabel: 'Constellation field',
+    bg: 'radial-gradient(125% 100% at 50% 0%, #eef4ff 0%, #f3f6fc 45%, #eaf0fa 100%)',
   },
   violet: {
     id: 'violet', name: 'Violet Luxury', sub: 'Creative design',
     color: '#8b5cf6', rgb: '139, 92, 246', rgb2: '168, 85, 247', swatch: '#8b5cf6',
+    scene: 'solar', sceneLabel: 'Solar system',
+    bg: 'radial-gradient(125% 110% at 50% 0%, #efeaff 0%, #f2eefc 45%, #ece6fb 100%)',
   },
   emerald: {
     id: 'emerald', name: 'Bio Matrix', sub: 'Data & analytics',
     color: '#10b981', rgb: '16, 185, 129', rgb2: '20, 184, 166', swatch: '#10b981',
-  },
-  sunset: {
-    id: 'sunset', name: 'Sunset Minimal', sub: 'Warm elegance',
-    color: '#f97316', rgb: '249, 115, 22', rgb2: '244, 63, 94', swatch: '#f97316',
+    scene: 'aurora', sceneLabel: 'Aurora waves',
+    bg: 'radial-gradient(125% 100% at 50% 0%, #e7fbf2 0%, #eefaf4 45%, #e3f6ee 100%)',
   },
 }
 
@@ -148,7 +153,16 @@ export const PROJECTS = [
       'Detected extreme spikes ($300/MWh) at 0.98 ROC-AUC with 69% recall.',
     ],
     stack: ['Python', 'XGBoost', 'SHAP', 'FastAPI'],
-    github: 'https://github.com/Hariharan6880',
+    github: 'https://github.com/Hariharan6880/ercot-price-forecasting',
+    gallery: [
+      { src: '/projects/ercot/overview.png', caption: 'Overview · headline metrics & model-vs-baseline lift' },
+      { src: '/projects/ercot/architecture.png', caption: 'Architecture · pipeline, design decisions & SHAP features' },
+      { src: '/projects/ercot/price-forecast.png', caption: 'Price forecast · actual vs predicted across 19,230 hours' },
+      { src: '/projects/ercot/error-analysis.png', caption: 'Error analysis · distribution, residuals & temporal patterns' },
+      { src: '/projects/ercot/regime-analysis.png', caption: 'Regime analysis · Normal / Stressed / Scarcity states' },
+      { src: '/projects/ercot/spike-detection.png', caption: 'Spike detection · binary classifier for >$300/MWh events' },
+      { src: '/projects/ercot/spike-events.png', caption: 'Spike events · ranked table with P(spike) & reserve margin' },
+    ],
   },
   {
     title: 'Agentic Self-Healing QA Testing',
