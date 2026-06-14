@@ -31,7 +31,7 @@ export const PERSONAS = {
     file: 'recruiter_mode.png',
     telemetry: 'REC_MODE: ACTIVE',
     stats: [
-      { val: '8.29', unit: '/10', label: 'M.Tech CSE GPA · VIT', tone: 'accent' },
+      { val: '8.70', unit: '/10', label: 'M.Tech CSE GPA · VIT', tone: 'accent' },
       { val: '8.40', unit: '/10', label: 'B.Tech Mechatronics GPA', tone: 'violet' },
       { val: '100%', unit: '', label: 'Production deployments', tone: 'emerald' },
     ],
@@ -202,7 +202,7 @@ export const TIMELINE = [
     role: 'M.Tech · Big Data Analytics (CSE)', org: 'Vellore Institute of Technology',
     period: '2024 – 2026 · Vellore, India',
     points: [
-      'Focus on ML modeling, statistical analysis, database mapping and RAG vector structures. GPA 8.29 / 10.',
+      'Focus on ML modeling, statistical analysis, database mapping and RAG vector structures. GPA 8.70 / 10.',
     ],
   },
   {
@@ -246,7 +246,7 @@ export const BOT_KB = [
   },
   {
     keywords: ['education', 'gpa', 'vit', 'hits', 'master', 'college', 'degree'],
-    answer: 'M.Tech in Big Data Analytics (CSE) from VIT with CGPA 8.29/10, and B.Tech in Mechatronics from Hindustan Institute of Technology & Science with CGPA 8.40/10.',
+    answer: 'M.Tech in Big Data Analytics (CSE) from VIT with CGPA 8.70/10, and B.Tech in Mechatronics from Hindustan Institute of Technology & Science with CGPA 8.40/10.',
   },
   {
     keywords: ['adas', 'collision', 'vision', 'cv', 'kitti', 'yolo'],
