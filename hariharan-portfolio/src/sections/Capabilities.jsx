@@ -15,7 +15,7 @@ export default function Capabilities() {
     <section id="capabilities" className="relative border-t border-slate-200/60 bg-white/50 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto mb-16 max-w-3xl text-center">
-          <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">// architectural powerhouses</span>
+          <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">architectural powerhouses</span>
           <h2 className="text-3xl font-black text-slate-900 sm:text-4xl">What I Deliver</h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-500">
             Data science is useless trapped in a notebook. I fuse statistical ML pipelines with high-speed creative UI to ship complete production tools.

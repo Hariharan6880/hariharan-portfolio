@@ -13,7 +13,7 @@ export default function Timeline() {
     <section id="journey" className="relative border-t border-slate-200/60 bg-white/50 py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <Reveal className="mb-16 text-center">
-          <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">// professional history roadmap</span>
+          <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">professional history roadmap</span>
           <h2 className="text-3xl font-black text-slate-900 sm:text-4xl">Training & Experience</h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-500">
             Advanced computing studies combined with high-fidelity physical automation engineering.

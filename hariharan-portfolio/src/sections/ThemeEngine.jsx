@@ -31,7 +31,7 @@ export default function ThemeEngine() {
     <section id="theme-engine" className="relative border-t border-slate-200/60 bg-white/40 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">// design expertise, live</span>
+          <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">design expertise, live</span>
           <h2 className="text-3xl font-black text-slate-900 sm:text-4xl">Dynamic Visual Theme Engine</h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-500">
             Proof I can build stunning client-facing systems. Recolour and re-typeset this entire site in real time — every accent across the page reacts instantly.
