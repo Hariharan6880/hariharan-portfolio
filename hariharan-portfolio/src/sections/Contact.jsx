@@ -39,7 +39,7 @@ export default function Contact({ persona }) {
           {/* left — form + details */}
           <Reveal className="flex flex-col justify-between lg:col-span-5">
             <div>
-              <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">// proposal gateway</span>
+              <span className="mono accent-text mb-3 block text-xs font-bold uppercase tracking-widest">proposal gateway</span>
               <AnimatePresence mode="wait">
                 <motion.div key={persona.id}
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
