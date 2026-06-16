@@ -9,6 +9,7 @@ const TONE = {
   violet: { text: 'group-hover:text-violet-600', tag: 'text-violet-600 bg-violet-50 border-violet-200', c: '#8b5cf6' },
   rose: { text: 'group-hover:text-rose-600', tag: 'text-rose-600 bg-rose-50 border-rose-200', c: '#f43f5e' },
   emerald: { text: 'group-hover:text-emerald-600', tag: 'text-emerald-600 bg-emerald-50 border-emerald-200', c: '#10b981' },
+  amber: { text: 'group-hover:text-amber-600', tag: 'text-amber-600 bg-amber-50 border-amber-200', c: '#d97706' },
 }
 
 export default function Projects() {
@@ -27,7 +28,7 @@ export default function Projects() {
 
         <motion.div variants={stagger} initial="hidden" whileInView="show"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4">
+          className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map(p => {
             const t = TONE[p.tone]
             return (
@@ -137,6 +138,32 @@ function ProjectArt({ kind, color }) {
           <circle r="3" fill={color} />
           <circle cx="20" cy="-12" r="3" fill="#f43f5e" />
         </g>
+      </svg>
+    )
+  }
+  if (kind === 'scatter') {
+    const high  = [[230,14],[250,10],[210,18],[265,8],[240,20]]
+    const med   = [[140,34],[160,30],[120,38],[175,26]]
+    const low   = [[45,55],[65,58],[85,52],[55,62],[75,50]]
+    return (
+      <svg viewBox="0 0 300 80" className="h-full w-full px-4">
+        <line x1="18" y1="70" x2="285" y2="70" stroke="#e2e8f0" strokeWidth="1"/>
+        <line x1="18" y1="4"  x2="18"  y2="70" stroke="#e2e8f0" strokeWidth="1"/>
+        {high.map(([cx,cy],i) => (
+          <motion.circle key={`h${i}`} cx={cx} cy={cy} r="5" fill="#f43f5e" fillOpacity="0.75"
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: i * 0.07 }} />
+        ))}
+        {med.map(([cx,cy],i) => (
+          <motion.circle key={`m${i}`} cx={cx} cy={cy} r="4" fill={color} fillOpacity="0.8"
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.35 + i * 0.07 }} />
+        ))}
+        {low.map(([cx,cy],i) => (
+          <motion.circle key={`l${i}`} cx={cx} cy={cy} r="3.5" fill="#10b981" fillOpacity="0.65"
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.65 + i * 0.07 }} />
+        ))}
       </svg>
     )
   }

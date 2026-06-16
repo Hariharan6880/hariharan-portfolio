@@ -209,6 +209,22 @@ export const PROJECTS = [
       { src: '/projects/saas/business-insights.png', caption: 'Business insights · ROI scenarios & 90-day retention action plan' },
     ],
   },
+  {
+    title: 'Marketplace Seller Intelligence Platform',
+    tag: 'Seller Risk Analytics', tone: 'amber', year: '2025', art: 'scatter',
+    desc: 'End-to-end seller churn prediction for a Myntra-style marketplace — synthetic data generation, SQL analytics, explainable ML and a 5-tab Streamlit dashboard.',
+    bullets: [
+      'Caught and fixed target leakage (AUC 1.0 → realistic 0.93) via point-in-time feature redesign.',
+      'Surfaced 62 at-risk active sellers with ₹2.1M GMV at stake, each assigned a specific retention action.',
+    ],
+    stack: ['Python', 'XGBoost', 'SHAP', 'SQLite', 'SMOTE', 'Streamlit'],
+    github: 'https://github.com/Hariharan6880/Marketplace-Competitive-Pricing-Intelligence',
+    gallery: [
+      { src: '/projects/marketplace/overview.png', caption: 'Dashboard overview · KPI cards, seller risk map & risk-tier distribution' },
+      { src: '/projects/marketplace/risk-tiers.png', caption: 'Risk tiers & churn probability · High / Medium / Low distribution with 0.4 / 0.7 thresholds' },
+      { src: '/projects/marketplace/recommended-actions.png', caption: 'Recommended actions · per-seller retention strategy workload breakdown' },
+    ],
+  },
 ]
 
 // ─── Timeline ────────────────────────────────────────────────────────────────
@@ -277,6 +293,10 @@ export const BOT_KB = [
   {
     keywords: ['adas', 'collision', 'vision', 'cv', 'kitti', 'yolo'],
     answer: 'The ADAS system uses YOLOv8 detection, DeepSORT tracking and MiDaS monocular depth to estimate time-to-collision — achieving a 2.89% false-brake rate on KITTI and BDD100K.',
+  },
+  {
+    keywords: ['marketplace', 'seller', 'churn', 'gmv', 'leakage', 'streamlit', 'myntra'],
+    answer: 'The Marketplace Seller Intelligence Platform predicts which third-party sellers are about to disengage — early enough to retain them. Built with XGBoost + SHAP + Streamlit, the interesting challenge was catching target leakage (AUC was a suspicious 1.0) and rebuilding with point-in-time features to get a realistic 0.93 AUC. The final model surfaces 62 at-risk active sellers representing ₹2.1M of monthly GMV, with a specific action for each one.',
   },
 ]
 
