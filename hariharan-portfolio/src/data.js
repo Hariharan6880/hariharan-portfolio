@@ -196,6 +196,15 @@ export const PROJECTS = [
     ],
     stack: ['Python', 'scikit-learn', 'Power BI', 'SQL'],
     github: 'https://github.com/Hariharan6880',
+    gallery: [
+      { src: '/projects/saas/power-bi-dashboard.png', caption: 'Power BI dashboard · executive overview, risk deep-dive & retention insights' },
+      { src: '/projects/saas/eda.png', caption: 'EDA · churn analysis by industry, cohort, engagement & correlations' },
+      { src: '/projects/saas/statistical-analysis.png', caption: 'Statistical analysis · hypothesis testing, survival curves & effect sizes' },
+      { src: '/projects/saas/model-evaluation.png', caption: 'Model evaluation · ROC/PR curves, feature importance & ML risk tiers' },
+      { src: '/projects/saas/risk-segmentation.png', caption: 'Risk segmentation · MRR at risk across Critical→Healthy segments' },
+      { src: '/projects/saas/early-warning.png', caption: 'Early-warning signals · risk tiers, rules-by-lift & MRR at risk' },
+      { src: '/projects/saas/business-insights.png', caption: 'Business insights · ROI scenarios & 90-day retention action plan' },
+    ],
   },
 ]
 
