@@ -36,6 +36,7 @@ const PATHS = {
   chevronLeft: 'M15 6l-6 6 6 6',
   chevronRight: 'M9 6l6 6-6 6',
   images: 'M3 7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Zm0 7 4-4 4 4m6 3-3-3M21 9v9a2 2 0 0 1-2 2H8',
+  play: 'M7 5v14l11-7z',
 }
 
 export function Icon({ name, className = 'w-4 h-4', strokeWidth = 1.8 }) {
@@ -436,9 +437,11 @@ function FloatChip({ x, y, label, delay = 0 }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lightbox — full-screen image gallery with captions, arrow + keyboard nav.
-//   items: [{ src, caption }], index: current, onIndex(n), onClose()
+// Lightbox — full-screen gallery (images + video) with captions & keyboard nav.
+//   items: [{ src, caption, type? }], index: current, onIndex(n), onClose()
 // ─────────────────────────────────────────────────────────────────────────────
+const isVideo = (item) => item.type === 'video' || /\.(mp4|webm|mov)$/i.test(item.src)
+
 export function Lightbox({ items, index, onIndex, onClose }) {
   const total = items.length
   const go = (d) => onIndex((index + d + total) % total)
@@ -478,38 +481,54 @@ export function Lightbox({ items, index, onIndex, onClose }) {
           </button>
         </div>
 
-        {/* image stage */}
+        {/* media stage */}
         <div className="relative flex w-full max-w-5xl flex-1 items-center justify-center" onClick={(e) => e.stopPropagation()}>
-          <button onClick={() => go(-1)} aria-label="Previous"
-            className="absolute left-0 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/60 text-white/90 transition hover:bg-white/15 sm:-left-4">
-            <Icon name="chevronLeft" className="h-6 w-6" />
-          </button>
+          {total > 1 && (
+            <button onClick={() => go(-1)} aria-label="Previous"
+              className="absolute left-0 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/60 text-white/90 transition hover:bg-white/15 sm:-left-4">
+              <Icon name="chevronLeft" className="h-6 w-6" />
+            </button>
+          )}
 
           <AnimatePresence mode="wait">
-            <motion.img
-              key={item.src}
-              src={item.src} alt={item.caption}
-              className="max-h-[78vh] w-auto rounded-xl border border-white/10 object-contain shadow-2xl"
-              initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.25 }}
-            />
+            {isVideo(item) ? (
+              <motion.video
+                key={item.src}
+                src={item.src} controls autoPlay muted loop playsInline
+                className="max-h-[78vh] w-auto rounded-xl border border-white/10 object-contain shadow-2xl"
+                initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25 }}
+              />
+            ) : (
+              <motion.img
+                key={item.src}
+                src={item.src} alt={item.caption}
+                className="max-h-[78vh] w-auto rounded-xl border border-white/10 object-contain shadow-2xl"
+                initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25 }}
+              />
+            )}
           </AnimatePresence>
 
-          <button onClick={() => go(1)} aria-label="Next"
-            className="absolute right-0 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/60 text-white/90 transition hover:bg-white/15 sm:-right-4">
-            <Icon name="chevronRight" className="h-6 w-6" />
-          </button>
+          {total > 1 && (
+            <button onClick={() => go(1)} aria-label="Next"
+              className="absolute right-0 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/60 text-white/90 transition hover:bg-white/15 sm:-right-4">
+              <Icon name="chevronRight" className="h-6 w-6" />
+            </button>
+          )}
         </div>
 
         {/* caption + dots */}
         <div className="w-full max-w-5xl pt-4 text-center" onClick={(e) => e.stopPropagation()}>
           <p className="mono text-xs text-white/80">{item.caption}</p>
-          <div className="mt-3 flex items-center justify-center gap-1.5">
-            {items.map((_, i) => (
-              <button key={i} onClick={() => onIndex(i)} aria-label={`Go to image ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-white' : 'w-1.5 bg-white/35 hover:bg-white/60'}`} />
-            ))}
-          </div>
+          {total > 1 && (
+            <div className="mt-3 flex items-center justify-center gap-1.5">
+              {items.map((_, i) => (
+                <button key={i} onClick={() => onIndex(i)} aria-label={`Go to item ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-white' : 'w-1.5 bg-white/35 hover:bg-white/60'}`} />
+              ))}
+            </div>
+          )}
         </div>
       </motion.div>
     </AnimatePresence>

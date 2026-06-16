@@ -35,15 +35,19 @@ export default function Projects() {
                 className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md transition-shadow hover:shadow-xl">
                 <div className="group/cover relative h-28 overflow-hidden border-b border-slate-100 bg-slate-50">
                   <ProjectArt kind={p.art} color={t.c} />
-                  {p.gallery && (
-                    <button type="button" onClick={() => setLb({ items: p.gallery, index: 0 })}
-                      aria-label={`Open ${p.title} gallery`}
-                      className="absolute inset-0 flex items-center justify-center bg-slate-900/0 transition hover:bg-slate-900/40">
-                      <span className="mono flex items-center gap-1.5 rounded-md bg-slate-900/80 px-2.5 py-1.5 text-[9px] font-bold uppercase tracking-wider text-white opacity-0 backdrop-blur-sm transition group-hover/cover:opacity-100">
-                        <Icon name="images" className="h-3 w-3" /> View gallery ({p.gallery.length})
-                      </span>
-                    </button>
-                  )}
+                  {p.gallery && (() => {
+                    const onlyVideo = p.gallery.length === 1 && p.gallery[0].type === 'video'
+                    return (
+                      <button type="button" onClick={() => setLb({ items: p.gallery, index: 0 })}
+                        aria-label={`Open ${p.title} ${onlyVideo ? 'demo' : 'gallery'}`}
+                        className="absolute inset-0 flex items-center justify-center bg-slate-900/0 transition hover:bg-slate-900/40">
+                        <span className="mono flex items-center gap-1.5 rounded-md bg-slate-900/80 px-2.5 py-1.5 text-[9px] font-bold uppercase tracking-wider text-white opacity-0 backdrop-blur-sm transition group-hover/cover:opacity-100">
+                          <Icon name={onlyVideo ? 'play' : 'images'} className="h-3 w-3" />
+                          {onlyVideo ? 'Watch demo' : `View gallery (${p.gallery.length})`}
+                        </span>
+                      </button>
+                    )
+                  })()}
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <div className="mb-3 flex items-center justify-between">

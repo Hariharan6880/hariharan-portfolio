@@ -185,6 +185,9 @@ export const PROJECTS = [
     ],
     stack: ['YOLOv8', 'DeepSORT', 'MiDaS', 'OpenCV'],
     github: 'https://github.com/Hariharan6880',
+    gallery: [
+      { src: '/projects/adas/output.mp4', type: 'video', caption: 'Live detection · YOLOv8 + DeepSORT tracking + MiDaS depth for time-to-collision on dashcam footage' },
+    ],
   },
   {
     title: 'SaaS User Retention Early-Warning Hub',
