@@ -9,7 +9,7 @@ export default function Footer() {
           HARIHARAN BALAJI
         </span>
         <p className="mono text-[10px] font-bold tracking-wider text-slate-400">
-          © 2026 · Custom-engineered portfolio & freelance platform
+          © 2026 · ML Engineer & Data Scientist · custom-engineered React portfolio
         </p>
         <div className="flex gap-4">
           <a href={CONTACT.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"

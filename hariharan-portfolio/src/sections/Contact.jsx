@@ -61,9 +61,9 @@ export default function Contact({ persona }) {
                 <div>
                   <Lbl>Engagement Objective</Lbl>
                   <select name="type" className="w-full rounded-xl border border-slate-200 bg-white p-3.5 text-xs text-slate-800 shadow-sm focus:border-[rgba(var(--accent-rgb),0.5)] focus:outline-none">
-                    <option value="freelance">Freelance web / solution partnership</option>
-                    <option value="fulltime">Data science / applied AI position</option>
-                    <option value="consult">Other custom project</option>
+                    <option value="fulltime">Full-time ML Engineer / Data Scientist role</option>
+                    <option value="contract">Contract or project engagement</option>
+                    <option value="consult">Other / general enquiry</option>
                   </select>
                 </div>
                 <div>
@@ -122,7 +122,7 @@ function BotAvatar({ className = 'h-9 w-9' }) {
 
 function ChatBot({ persona }) {
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: "Systems online. I've loaded Hariharan's full background — data science, mechatronics and freelance capabilities. Ask me anything, or tap a prompt below." },
+    { sender: 'bot', text: "Systems online. I've loaded Hariharan's full background — ML engineering, agentic LLM systems, data science and mechatronics. Ask me anything, or tap a prompt below." },
   ])
   const [input, setInput] = useState('')
   const [typing, setTyping] = useState(false)

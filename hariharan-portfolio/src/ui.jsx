@@ -339,28 +339,6 @@ function MiniDonut() {
 function PersonaScene({ id }) {
   const A = 'var(--accent-color)'
   const common = 'h-full w-full'
-  if (id === 'freelancer') {
-    return (
-      <svg viewBox="0 0 400 320" className={common} preserveAspectRatio="xMidYMid slice">
-        <SceneBg />
-        {/* browser window being built */}
-        <motion.g initial={{ y: 6 }} animate={{ y: [-4, 6, -4] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}>
-          <rect x="70" y="70" width="260" height="180" rx="14" fill="#fff" stroke={A} strokeOpacity="0.4" />
-          <rect x="70" y="70" width="260" height="30" rx="14" fill={A} fillOpacity="0.08" />
-          <circle cx="90" cy="85" r="4" fill="#f87171" /><circle cx="104" cy="85" r="4" fill="#fbbf24" /><circle cx="118" cy="85" r="4" fill="#34d399" />
-          <motion.rect x="88" y="118" width="120" height="14" rx="4" fill={A} fillOpacity="0.5"
-            initial={{ width: 0 }} animate={{ width: [0, 120, 120] }} transition={{ duration: 3, repeat: Infinity }} />
-          <rect x="88" y="142" width="200" height="8" rx="4" fill="#cbd5e1" />
-          <rect x="88" y="158" width="170" height="8" rx="4" fill="#e2e8f0" />
-          <rect x="88" y="186" width="90" height="40" rx="8" fill={A} fillOpacity="0.85" />
-          <rect x="190" y="186" width="98" height="40" rx="8" fill="#e2e8f0" />
-        </motion.g>
-        <FloatChip x="280" y="60" label="UI" />
-        <FloatChip x="48" y="210" label="CSS" delay={1.5} />
-      </svg>
-    )
-  }
   if (id === 'creator') {
     const nodes = [[110, 90], [200, 60], [290, 110], [150, 180], [260, 200], [200, 130]]
     const edges = [[0, 5], [1, 5], [2, 5], [3, 5], [4, 5], [0, 1], [2, 4]]

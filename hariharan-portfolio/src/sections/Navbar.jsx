@@ -42,7 +42,7 @@ export default function Navbar({ persona }) {
               HARIHARAN BALAJI
             </span>
             <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-500">
-              Data Scientist & Visual Architect
+              ML Engineer & Data Scientist
             </span>
           </span>
         </button>

@@ -16,17 +16,17 @@ export const PERSONAS = {
     id: 'recruiter',
     tab: 'Recruiter',
     icon: 'badge',
-    status: 'Actively seeking Data Science roles & analytical partnerships',
+    status: 'Actively seeking full-time ML Engineer & Data Scientist roles',
     headlineLead: 'I build',
-    headlineAccent: 'production data pipelines',
-    headlineTail: 'deployed straight into functional web platforms.',
+    headlineAccent: 'production ML systems',
+    headlineTail: 'from agentic LLM pipelines to real-time perception.',
     description:
-      "I bridge the gap between heavy statistical modeling and modern frontend engineering. Armed with an M.Tech in Big Data Analytics (VIT) and a B.Tech in Mechatronics, I ship predictive algorithms, ML models and automated test pipelines.",
+      "ML Engineer & Data Scientist with an M.Tech in Big Data Analytics (VIT) and a B.Tech in Mechatronics. I ship end-to-end AI — agentic LLM pipelines (LangGraph, RAG), real-time ADAS perception, electricity-price forecasting deployed on GCP Cloud Run, and churn analytics.",
     primaryCta: { label: 'Hire Me Full-Time', icon: 'contract', href: '#contact' },
     headerCta: 'Hire Me',
     contactHeadline: 'Bring Me to Your Team',
     contactDescription:
-      'Recruiter, engineering director or founder looking to add production-focused data science horsepower? Drop your role requirements below.',
+      'Recruiter or engineering lead looking to add an ML Engineer & Data Scientist who ships models into production? Drop your role requirements below.',
     botMode: 'RECRUITER MODE',
     file: 'recruiter_mode.png',
     telemetry: 'REC_MODE: ACTIVE',
@@ -36,45 +36,21 @@ export const PERSONAS = {
       { val: '100%', unit: '', label: 'Production deployments', tone: 'emerald' },
     ],
   },
-  freelancer: {
-    id: 'freelancer',
-    tab: 'Freelancer',
-    icon: 'store',
-    status: 'Now booking freelance projects & custom web builds',
-    headlineLead: 'I build',
-    headlineAccent: 'premium visual websites',
-    headlineTail: 'that drive measurable business results.',
-    description:
-      'I design and launch lightning-fast landing pages, custom calculators and automated analytics portals — combining mechatronics precision with expert web code to save owners time and overhead.',
-    primaryCta: { label: 'Start Your Project', icon: 'magic', href: '#contact' },
-    headerCta: 'Start a Project',
-    contactHeadline: 'Launch Your Next Project',
-    contactDescription:
-      "Need a professional portfolio, a fast landing page, a pricing tool or a smart automation flow? Describe your goals below and let's construct it.",
-    botMode: 'FREELANCE MODE',
-    file: 'freelancer_mode.png',
-    telemetry: 'CLIENT_MODE: ACTIVE',
-    stats: [
-      { val: '24–48h', unit: '', label: 'Initial prototype delivery', tone: 'accent' },
-      { val: '1,600+', unit: 'hrs', label: 'Avg manual hours saved / yr', tone: 'violet' },
-      { val: '85%', unit: '', label: 'Pipeline error reduction', tone: 'emerald' },
-    ],
-  },
   creator: {
     id: 'creator',
     tab: 'Creative Engine',
     icon: 'cubes',
-    status: 'Pushing applied simulation & agentic QA platforms',
+    status: 'Building agentic LLM systems & applied AI platforms',
     headlineLead: 'I engineer',
-    headlineAccent: 'self-healing automated pipelines',
-    headlineTail: 'wired into full mechatronic system structures.',
+    headlineAccent: 'agentic LLM systems',
+    headlineTail: 'that reason, search and ship into production apps.',
     description:
-      'At Magna International I trained predictive analytics nodes and configured Appium + LangGraph self-healing test automation that cut manual QA cycles by 40%. Ask the chatbot below about the virtual factories I built.',
+      'I design multi-agent LLM systems end-to-end — a dual-LangGraph supervisor-agent gift recommender for DelightLoop, and on-premise (Ollama) test-generation pipelines at Magna that lifted pass rates from 33% to 86% with a ChromaDB RAG layer. Ask the chatbot below about the agents I build.',
     primaryCta: { label: 'Explore Case Studies', icon: 'gamepad', href: '#projects' },
-    headerCta: 'Start a Project',
+    headerCta: 'View My Work',
     contactHeadline: "Let's Build Something Ambitious",
     contactDescription:
-      'Working on simulation, robotics fleets or agentic automation? I love hard systems problems — tell me what you are building.',
+      'Working on agentic AI, RAG systems or applied ML? I love hard systems problems — tell me what you are building.',
     botMode: 'CREATOR MODE',
     file: 'creator_mode.png',
     telemetry: 'CREATOR_MODE: ACTIVE',
@@ -86,7 +62,7 @@ export const PERSONAS = {
   },
 }
 
-export const PERSONA_ORDER = ['recruiter', 'freelancer', 'creator']
+export const PERSONA_ORDER = ['recruiter', 'creator']
 
 // ─── Theme engine presets ────────────────────────────────────────────────────
 // Each theme drives: accent palette, a full-page `bg` gradient, and an animated
@@ -123,17 +99,17 @@ export const CAPABILITIES = [
   {
     icon: 'brain', tone: 'accent',
     title: 'Notebook → Production',
-    body: 'I train robust ML pipelines (XGBoost, regression, random forest) and pack them cleanly into FastAPI services with solid security architecture.',
+    body: 'I train robust ML pipelines (XGBoost, regression, random forest) and ship them as FastAPI services — Dockerized and deployed serverless on GCP Cloud Run.',
   },
   {
-    icon: 'curve', tone: 'violet',
-    title: 'Beautiful UX & Web Code',
-    body: 'No more static, ugly dashboards. Lightning-fast interfaces, responsive grids, interactive calculators and smooth UI motion built on modern CSS.',
+    icon: 'branch', tone: 'violet',
+    title: 'Agentic LLM Systems',
+    body: 'Multi-agent LangGraph/LangChain pipelines with RAG (FAISS, ChromaDB, BGE embeddings) — signal extraction, tool-use search, scoring and human-in-the-loop review.',
   },
   {
-    icon: 'branch', tone: 'emerald',
-    title: 'Agentic QA Testing',
-    body: 'Self-healing multi-agent test pipelines (LangGraph, Appium, ChromaDB) that parse scenarios, generate code, check output and auto-debug on the fly.',
+    icon: 'curve', tone: 'emerald',
+    title: 'ML-Backed Web Apps',
+    body: 'I wrap models in clean React frontends — live pipeline visualisations, review queues and analytics portals — so insights are usable, not stuck in a notebook.',
   },
   {
     icon: 'vr', tone: 'amber',
@@ -145,14 +121,27 @@ export const CAPABILITIES = [
 // ─── Projects ────────────────────────────────────────────────────────────────
 export const PROJECTS = [
   {
+    title: 'B2B Gift Recommendation Agent',
+    tag: 'Agentic AI · DelightLoop', tone: 'violet', year: '2026', art: 'graph',
+    desc: 'DelightLoop technical assessment — a dual-LangGraph supervisor-agent system that turns recipient signals into explainable B2B gift recommendations, with a human-in-the-loop review queue.',
+    bullets: [
+      'Architected a 7-node pipeline (signal extraction → candidates → fusion → search → scoring → explanation → review) with a nested goal-driven search sub-agent.',
+      'Built NLP signal extraction (parsing → chunking → 768-dim BGE embeddings) feeding 3-source candidate generation with semantic deduplication.',
+      'Shipped full-stack: FastAPI background-job API + React frontend with animated live pipeline visualisation and HITL review queue.',
+    ],
+    stack: ['Python', 'LangGraph', 'FastAPI', 'React', 'FAISS', 'BGE Embeddings', 'SQLite', 'Tavily', 'Gemini', 'Groq', 'Ollama'],
+    github: 'https://github.com/Hariharan6880/delightloop-gift-agent',
+  },
+  {
     title: 'Electricity Price Forecasting · Texas ERCOT',
     tag: 'ML & Forecasting', tone: 'accent', year: '2026', art: 'grid',
-    desc: 'Forecasting & decision-support system for electricity prices in a highly volatile market — built to capture extreme spikes while avoiding feature leakage.',
+    desc: 'Forecasting & decision-support system for volatile ERCOT electricity prices — built to capture extreme spikes while avoiding feature leakage, then deployed serverless on GCP Cloud Run.',
     bullets: [
-      'Achieved a $7.58/MWh MAE on out-of-sample data, beating linear models by 53%.',
-      'Detected extreme spikes ($300/MWh) at 0.98 ROC-AUC with 69% recall.',
+      'Deployed the FastAPI inference service to GCP Cloud Run (Docker → Cloud Build → Artifact Registry) — serverless, auto-scaling, live over HTTPS.',
+      '$7.58/MWh MAE on 19,230-hour out-of-sample data — 53% better than Linear Regression.',
+      'Spike detection at 0.98 ROC-AUC with 69% recall under 99.7% class imbalance.',
     ],
-    stack: ['Python', 'XGBoost', 'SHAP', 'FastAPI'],
+    stack: ['Python', 'XGBoost', 'SHAP', 'FastAPI', 'Docker', 'GCP Cloud Run'],
     github: 'https://github.com/Hariharan6880/ercot-price-forecasting',
     gallery: [
       { src: '/projects/ercot/overview.png', caption: 'Overview · headline metrics & model-vs-baseline lift' },
@@ -165,14 +154,14 @@ export const PROJECTS = [
     ],
   },
   {
-    title: 'Agentic Self-Healing QA Testing',
-    tag: 'Agentic AI Workflows', tone: 'violet', year: '2026', art: 'graph',
-    desc: 'End-to-end multi-agent orchestration that generates, executes and auto-debugs Appium mobile scripts from plain-text requests.',
+    title: 'AI-Driven Test Generation · Magna Logistics App',
+    tag: 'Agentic AI · On-Prem LLMs', tone: 'rose', year: '2026', art: 'graph',
+    desc: "Proposed and greenlit by the testing lead to auto-generate test cases for Magna's internal logistics app using local LLMs via Ollama — keeping proprietary data fully on-premise.",
     bullets: [
-      'Cut manual testing developer workload by 40% across 50+ scenarios.',
-      'Secured a 64% first-run script compilation pass rate.',
+      'Generated 347 test cases from a single module; lifted pass rate 33% → 86% with a ChromaDB RAG layer that eliminated hallucinated UI accessibility IDs.',
+      'Diagnosed residual failures as environmental cascade tab-lock issues rather than model errors.',
     ],
-    stack: ['LangGraph', 'ChromaDB', 'Appium', 'FastAPI'],
+    stack: ['LangGraph', 'LangChain', 'Ollama', 'ChromaDB', 'Appium'],
     github: 'https://github.com/Hariharan6880',
   },
   {
@@ -234,9 +223,11 @@ export const TIMELINE = [
     role: 'Product Engineer Intern', org: 'Magna International',
     period: 'Jul 2025 – May 2026 · Bengaluru, India',
     points: [
+      'Proposed & shipped an on-premise LLM test-generation pipeline (LangGraph + Ollama + ChromaDB RAG) — 347 test cases from one module, lifting pass rate 33% → 86%.',
       'Programmed a 5-robot virtual factory in Pyglet (3D) & Pymunk (2D) to log obstacle paths and testing diagnostics.',
       'Benchmarked robotic fleet navigation inside NVIDIA Isaac Sim to evaluate obstacle-avoidance behaviour.',
       'Built microservices in Flask (Python) and Gin (Go) to VDA5050 and MQTT standards.',
+      'Set up AWS CodePipeline & CodeDeploy for managed backend deployments; integrated factory-asset data end-to-end from simulation to cloud infrastructure.',
     ],
   },
   {
@@ -260,31 +251,35 @@ export const TIMELINE = [
 // ─── Marquee skill ticker ────────────────────────────────────────────────────
 export const TOOLS = [
   'Python', 'SQL', 'XGBoost', 'scikit-learn', 'LangGraph', 'LangChain',
-  'YOLOv8', 'OpenCV', 'FastAPI', 'Power BI', 'Pandas', 'SHAP', 'ChromaDB',
-  'Docker', 'Git', 'Pyglet', 'Pymunk', 'MQTT', 'Go (Gin)', 'Flask',
+  'NLP', 'Prompt Engineering', 'Text Processing', 'Hugging Face', 'Transformers',
+  'BGE Embeddings', 'Sentence-Transformers', 'Tavily', 'FAISS', 'RAG',
+  'Ollama / On-Prem LLMs', 'React.js', 'FastAPI', 'YOLOv8', 'OpenCV',
+  'GCP (Cloud Run · Cloud Build · Artifact Registry)', 'AWS (CodePipeline · CodeDeploy)',
+  'Docker', 'Power BI', 'Pandas', 'Matplotlib', 'SHAP', 'ChromaDB',
+  'Git', 'Pyglet', 'Pymunk', 'MQTT', 'Go (Gin)', 'Flask',
 ]
 
 // ─── Chatbot knowledge base ──────────────────────────────────────────────────
 export const BOT_KB = [
   {
-    keywords: ['freelance', 'services', 'offer', 'website', 'web creation', 'build a website', 'web'],
-    answer: 'Hari offers three freelance tracks: 1) custom interactive dashboards wiring API feeds into gorgeous layouts, 2) full-stack web page creation (landing grids, performant SEO, tailored CSS), and 3) AI automation & scripting with self-healing systems.',
+    keywords: ['delightloop', 'gift', 'recommend', 'supervisor', 'embedding', 'bge', 'fusion', 'tavily'],
+    answer: 'For DelightLoop, Hari built a dual-LangGraph supervisor-agent B2B gift recommender: a 7-node pipeline (signal extraction → candidates → fusion → search → scoring → explanation → human review) with a nested goal-driven search sub-agent. NLP signal extraction feeds 768-dim BGE embeddings into 3-source candidate generation with semantic dedup, served via a FastAPI background-job API and a React frontend with a live pipeline view and human-in-the-loop review queue.',
   },
   {
-    keywords: ['ercot', 'electricity', 'energy', 'price', 'forecast'],
-    answer: 'The ERCOT model forecasts volatile electricity prices and flags spike thresholds under heavy class imbalance. Built with XGBoost, SHAP and FastAPI, it hit a $7.58/MWh MAE — 53% better than linear baselines.',
+    keywords: ['ercot', 'electricity', 'energy', 'price', 'forecast', 'cloud run', 'gcp'],
+    answer: 'The ERCOT model forecasts volatile electricity prices and flags spike thresholds under 99.7% class imbalance. Built with XGBoost, SHAP and FastAPI — Dockerized and deployed serverless on GCP Cloud Run (Cloud Build → Artifact Registry) — it hit a $7.58/MWh MAE (53% better than Linear Regression) and 0.98 ROC-AUC with 69% recall on spike detection.',
   },
   {
-    keywords: ['langgraph', 'agentic', 'automation', 'appium', 'testing', 'self-healing', 'qa'],
-    answer: 'Hari built a multi-agent self-healing QA pipeline. Using LangGraph and ChromaDB embeddings it parses natural-language test descriptions, builds Appium scripts, classifies failures and auto-patches code — cutting manual effort ~40%.',
+    keywords: ['langgraph', 'agentic', 'automation', 'appium', 'testing', 'self-healing', 'qa', 'test generation', 'ollama', 'on-prem'],
+    answer: 'At Magna, Hari proposed and shipped an on-premise LLM test-generation pipeline using local models via Ollama (Gemma, Qwen, Mistral) with LangGraph and Appium — keeping proprietary data on-prem. It generated 347 test cases from one module and lifted pass rate from 33% to 86% after adding a ChromaDB RAG layer to eliminate hallucinated UI accessibility IDs.',
   },
   {
-    keywords: ['magna', 'intern', 'robot', 'isaac', 'pyglet', 'mechatronics', 'simulation'],
-    answer: 'At Magna International Hari engineered a 5-robot simulated factory in Pyglet/Pymunk, benchmarked obstacle behaviour in NVIDIA Isaac Sim, and wrote Flask + Gin (Go) microservices to VDA5050 and MQTT standards.',
+    keywords: ['magna', 'intern', 'robot', 'isaac', 'pyglet', 'mechatronics', 'simulation', 'aws'],
+    answer: 'At Magna International Hari engineered a 5-robot simulated factory in Pyglet/Pymunk, benchmarked obstacle behaviour in NVIDIA Isaac Sim, and wrote Flask + Gin (Go) microservices to VDA5050 and MQTT standards. He also set up AWS CodePipeline & CodeDeploy for managed backend deployments and integrated factory-asset data end-to-end from simulation to cloud.',
   },
   {
     keywords: ['skill', 'toolkit', 'language', 'python', 'stack', 'sql'],
-    answer: 'Core stack: Python, SQL, REST APIs (FastAPI, Flask, Gin), ML (XGBoost, regression, random forest), agents (LangGraph, ChromaDB), computer vision (YOLOv8, OpenCV) and frontend (React, Tailwind CSS).',
+    answer: 'Core stack: Python, SQL, NLP & prompt engineering, ML (XGBoost, scikit-learn, SHAP), agents & RAG (LangGraph, LangChain, FAISS, ChromaDB, BGE / Sentence-Transformers, Hugging Face Transformers, Ollama, Tavily), computer vision (YOLOv8, OpenCV), cloud & deploy (GCP Cloud Run/Build/Artifact Registry, AWS CodePipeline/CodeDeploy, Docker) and frontend (React.js, Tailwind CSS).',
   },
   {
     keywords: ['education', 'gpa', 'vit', 'hits', 'master', 'college', 'degree'],
@@ -301,11 +296,11 @@ export const BOT_KB = [
 ]
 
 export const BOT_FALLBACK =
-  "I couldn't map that one. Try asking about freelance web work, the ERCOT forecasting model, the LangGraph QA agents, mechatronics at Magna, or the skills stack — or email Hari directly at hariharan2002.br@gmail.com."
+  "I couldn't map that one. Try asking about the DelightLoop gift agent, the ERCOT forecasting model, the Magna on-prem LLM test agents, the ADAS vision system, or the skills stack — or email Hari directly at hariharan2002.br@gmail.com."
 
 export const BOT_SUGGESTIONS = [
-  { label: 'Freelance offerings', q: 'What freelance services do you offer?' },
+  { label: 'DelightLoop agent', q: 'Tell me about the DelightLoop gift recommendation agent' },
   { label: 'ERCOT forecasting', q: 'Explain your electricity prediction project' },
-  { label: 'Web engineering', q: 'How can you build highly custom websites?' },
-  { label: 'Magna & mechatronics', q: 'Tell me about your mechatronics and Magna internship' },
+  { label: 'Skills & stack', q: 'What is your skills stack?' },
+  { label: 'Magna & on-prem LLMs', q: 'Tell me about your Magna internship and on-prem LLM work' },
 ]
